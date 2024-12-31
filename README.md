@@ -7,3 +7,5 @@ In a second time, we import market data of the risky asset in order to compute r
 We check that the log returns are normally distributed thanks to a QQ-plot. Once it's done, we again go through the project from assignement b) to d).
 
 We conclude this project by comparing results between the simulated log-returns and market data log-returns.
+
+The final report of this project is also available.
