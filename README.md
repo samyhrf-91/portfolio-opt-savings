@@ -1,5 +1,5 @@
 This project is about the optimisation of a portolio, in a context of pension savings.
-This code is organised in sections to make it easy to get started.
+This code is organised in sections to make it easy to get started. The project instructions can be found in the pdf file Project_1_instructions_2022.
 
 Firstly, we assume that the log-returns are normally distributed. We then go through the project from assignement a) to assignement d)
 
