@@ -1,16 +1,19 @@
 library(ggplot2)
 
+# ---- constants ----
 r = 0.01
 r_min = 0.005 # guaranteed rate of return (for assignment c) and d))
 
 set.seed(NULL)
 set.seed(221122)
+
+# ---- simulated log returns for assignement a) ----
 n <- 1000 # 1000 works also reasonably well
 z <- matrix(rnorm(30*n), nrow = 30, ncol = n)
 mu <- 0.03
 sigma <- 0.2
 
-#### assignment e)
+# ---- market data log returns for assignement e) ----
 indexdata <- read.csv(file = "indexdata.csv", sep=";", header=TRUE)
 #indexdata <- read.table(file = "indexdata.txt", sep = "\t", header=TRUE)
 
@@ -46,6 +49,7 @@ z <- matrix(log_returns_standardised, nrow = 30, ncol = n)
 
 qqnorm(z) ## QQ-plot to check that we obtain a normal distribution for the yearly returns
 
+# ---- assignement a) ----
 
 ## function for assignment a) and b)
 generate <- function(mu=0.03, sigma=0.2, p = 0.5, c = 0.5) {
@@ -143,6 +147,8 @@ ggplot(df, aes(x = v30, col = c)) +
 #       in case we have to use it: write function to compute ES, given the loss and level p. 
 
 # max E[v30] w.r.t. F^-1(0.01) >= 30_000
+
+# ---- assignement b) ----
 
 # calculations for computing the loss:
 # risk free rate over 30 years:
@@ -255,6 +261,7 @@ df <- data.frame(
 ggplot(df, aes(x=values)) + 
   geom_histogram(binwidth = 1000, alpha = .5, position="identity")
 
+# ---- assignement c) ----
 
 #### assignment c) 
 # new calculation for v(k) with guaranteed value G(k)
@@ -295,6 +302,7 @@ df <- data.frame(
 ggplot(df, aes(x=values)) + 
   geom_histogram(binwidth = 1000, alpha = .5, color="darkcyan", fill="cyan", position="identity")
 
+# ---- assignement d) ----
 
 #### assignment d)
 leverage <- 1/0.5
@@ -343,6 +351,8 @@ generate <- function(mu, sigma) {
 v30_d <- generate(mu=mu, sigma=sigma)
 print(paste('mean : ', round(mean(v30_d), 4), '; sd : ', round(sd(v30_d), 4), 
             '; 1%-quantile : ', round(quantile(v30_d, 0.01), 4)) )
+
+# ---- comparison ----
 
 # histogram for comparison of c) and d)
 df <- data.frame(
